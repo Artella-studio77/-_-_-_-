@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة في رحاب العصر العباسي</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper: #eee4d0;
+  --paper-light: #f8f1e4;
+  --blue: #243f59;
+  --blue2: #526f88;
+  --gold: #b28a50;
+  --ink: #302d29;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 15% 20%, #d7c9ac 0, transparent 40%),
+    radial-gradient(ellipse at 85% 75%, #d2c6ad 0, transparent 45%),
+    var(--paper);
+  font-family: 'Cairo', sans-serif;
+  overflow-x: hidden;
+}
+
+/* زخارف الخلفية */
+body::before {
+  content: "✧     ۞     ✧     ۞     ✧";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  color: #9e825b;
+  opacity: .09;
+  font-size: 65px;
+  line-height: 2.2;
+  letter-spacing: 35px;
+  z-index: -1;
+  animation: drift 25s linear infinite;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-300px); }
+}
+
+header {
+  min-height: 85px;
+  padding: 15px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #b69b70;
+  background: rgba(248,241,228,.75);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.logo {
+  font-family: 'Amiri', serif;
+  color: var(--blue);
+  font-size: 25px;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  min-height: 620px;
+  padding: 100px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background:
+    linear-gradient(rgba(24,43,59,.77),rgba(24,43,59,.88)),
+    url('https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1800&q=85') center/cover;
+  color: #f8efdf;
+}
+
+.hero::before, .hero::after {
+  content: "۞";
+  position: absolute;
+  color: #d0ad72;
+  font-size: 100px;
+  opacity: .5;
+}
+
+.hero::before { top: 30px; right: 7%; }
+.hero::after { bottom: 25px; left: 7%; }
+
+.hero-content {
+  max-width: 850px;
+  animation: appear 1.5s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  color: #dfbd80;
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: 'Amiri', serif;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.35;
+  margin: 18px 0;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 2.2;
+  color: #e8dfd1;
+}
+
+.main-btn {
+  border: 1px solid #d2b47d;
+  background: #d2b47d;
+  color: #243f59;
+  padding: 13px 32px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .3s;
+  margin-top: 20px;
+}
+
+.main-btn:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-4px);
+}
+
+section {
+  padding: 85px 8%;
+  scroll-margin-top: 90px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.section-title small {
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+.section-title h2 {
+  color: var(--blue);
+  font-family: 'Amiri', serif;
+  font-size: 43px;
+  margin: 8px 0;
+}
+
+.section-title p { color: #777064; }
+
+.intro-box {
+  max-width: 950px;
+  margin: auto;
+  padding: 40px;
+  border: 1px solid #c3a77b;
+  background: rgba(255,250,239,.55);
+  box-shadow: 0 15px 40px #62513a12;
+  position: relative;
+  line-height: 2.3;
+  font-size: 17px;
+}
+
+.intro-box::before {
+  content: "❝";
+  position: absolute;
+  top: -38px;
+  right: 25px;
+  font-family: serif;
+  font-size: 90px;
+  color: var(--gold);
+  opacity: .55;
+}
+
+.timeline {
+  max-width: 900px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.time-card {
+  text-align: center;
+  padding: 25px 15px;
+  border-top: 3px solid var(--gold);
+  background: #f8f1e4a8;
+}
+
+.time-card strong {
+  color: var(--blue);
+  display: block;
+  font-family: 'Amiri', serif;
+  font-size: 25px;
+}
+
+.time-card span {
+  font-size: 13px;
+  color: #777064;
+}
+
+.scholars {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.scholar-card {
+  background: #f8f1e4;
+  border: 1px solid #c9b48e;
+  padding: 14px;
+  text-align: center;
+  transition: .4s;
+  box-shadow: 0 12px 30px #40311d12;
+}
+
+.scholar-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px #40311d22;
+}
+
+.portrait {
+  height: 260px;
+  overflow: hidden;
+  background: linear-gradient(145deg,#253f58,#9c805a);
+  position: relative;
+}
+
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+
+.scholar-card:hover .portrait img {
+  transform: scale(1.06);
+}
+
+.portrait .fallback {
+  display: none;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #e9d2a8;
+  font-family: 'Amiri',serif;
+  font-size: 75px;
+}
+
+.scholar-card h3 {
+  color: var(--blue);
+  font-family: 'Amiri',serif;
+  font-size: 28px;
+  margin: 17px 0 3px;
+}
+
+.scholar-card p {
+  color: #80745f;
+  font-size: 13px;
+}
+
+.read-btn {
+  background: var(--blue);
+  color: #f7ead4;
+  border: 0;
+  padding: 11px 28px;
+  margin: 10px 0 15px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: .3s;
+}
+
+.read-btn:hover {
+  background: var(--gold);
+  color: #fff;
+}
+
+.detail {
+  display: none;
+  max-width: 1050px;
+  margin: 30px auto;
+  padding: 35px;
+  background: #f8f1e4;
+  border: 1px solid #b99b6c;
+  box-shadow: 0 15px 35px #40311d14;
+  animation: appear .6s ease;
+}
+
+.detail.active { display: block; }
+
+.detail h2 {
+  font-family: 'Amiri',serif;
+  font-size: 36px;
+  color: var(--blue);
+}
+
+.detail h3 {
+  color: #98723d;
+  font-family: 'Amiri',serif;
+  font-size: 23px;
+}
+
+.detail p, .detail li {
+  line-height: 2.2;
+}
+
+.detail ul { padding-right: 25px; }
+
+.close-btn {
+  background: transparent;
+  border: 1px solid var(--gold);
+  padding: 8px 20px;
+  cursor: pointer;
+  color: var(--blue);
+  font-family: inherit;
+}
+
+.quote {
+  text-align: center;
+  background: var(--blue);
+  color: #eee4d0;
+  padding: 70px 15%;
+  font-family: 'Amiri',serif;
+  font-size: 30px;
+  line-height: 2;
+}
+
+.quote small {
+  display: block;
+  font-family: 'Cairo',sans-serif;
+  color: #d2b47d;
+  font-size: 13px;
+}
+
+/* قسم الاختبار */
+.quiz {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 35px;
+  border: 1px solid #c3a77b;
+  background: rgba(255,250,239,.65);
+  box-shadow: 0 15px 40px #62513a12;
+}
+
+.quiz-question {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d3c2a3;
+}
+
+.quiz-question h3 {
+  color: var(--blue);
+  font-family: 'Amiri', serif;
+  font-size: 23px;
+  margin: 0 0 15px;
+}
+
+.quiz-option {
+  display: block;
+  padding: 10px 14px;
+  margin: 8px 0;
+  background: #f8f1e4;
+  border: 1px solid #d4c3a2;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.quiz-option:hover {
+  background: #e9dcc3;
+  border-color: var(--gold);
+}
+
+.quiz-option input {
+  accent-color: var(--blue);
+  margin-left: 10px;
+}
+
+.quiz-submit {
+  display: block;
+  margin: 25px auto;
+  padding: 13px 35px;
+  background: var(--blue);
+  color: white;
+  border: 1px solid var(--gold);
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.quiz-submit:hover {
+  background: var(--gold);
+}
+
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 25px;
+  margin-top: 20px;
+  background: #eee4d0;
+  border: 1px solid var(--gold);
+  line-height: 2;
+}
+
+.quiz-result h3 {
+  color: var(--blue);
+  font-family: 'Amiri', serif;
+  font-size: 30px;
+}
+
+footer {
+  text-align: center;
+  padding: 35px;
+  color: #eee4d0;
+  background: #192e41;
+  line-height: 2;
+}
+
+footer span { color: #d2b47d; }
+
+@media(max-width:800px) {
+  header { flex-direction: column; }
+  .scholars { grid-template-columns: 1fr; max-width: 430px; }
+  .timeline { grid-template-columns: 1fr; }
+  .hero { min-height: 530px; padding: 70px 6%; }
+  section { padding: 65px 6%; }
+  .intro-box { padding: 25px; }
+  .detail { padding: 22px; }
+  .quote { padding: 55px 8%; }
+  .quiz { padding: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">۞ متحف الحضارة ۞</div>
+  <nav>
+    <a href="#home">الرئيسية</a>
+    <a href="#history">العصر العباسي</a>
+    <a href="#scholars">علماؤنا</a>
+    <a href="#quiz">الاختبار</a>
+  </nav>
+</header>
+
+<main>
+
+<div class="hero" id="home">
+  <div class="hero-content">
+    <div class="eyebrow">رحلة عبر الزمن • العصر العباسي</div>
+    <h1>حين أضاء العلم سماء الحضارة</h1>
+    <p>
+      من بغداد، مدينة العلم والحكمة، ننطلق في رحلة إلى عصرٍ
+      ازدهرت فيه المعرفة، وترك علماؤه بصمات لا تزال حاضرة
+      في عالمنا حتى اليوم.
+    </p>
+    <button class="main-btn" onclick="document.getElementById('history').scrollIntoView()">
+      ابدأ الرحلة ←
+    </button>
+  </div>
+</div>
+
+<section id="history">
+  <div class="section-title">
+    <small>الفصل الأول • بوابة التاريخ</small>
+    <h2>العصر العباسي</h2>
+    <p>عصر ازدهار الحضارة والعلوم والآداب</p>
+  </div>
+
+  <div class="intro-box">
+    يُعد العصر العباسي من أبرز العصور في تاريخ الحضارة الإسلامية،
+    وقد بدأ سنة 132هـ / 750م، مع قيام الدولة العباسية بعد سقوط
+    الدولة الأموية. واتخذ العباسيون بغداد عاصمة لهم، فأصبحت
+    مركزاً علمياً وثقافياً مهماً، يقصده العلماء والمترجمون وطلاب
+    المعرفة من مختلف أنحاء العالم.
+
+    <br><br>
+
+    شهد هذا العصر ازدهاراً كبيراً في الطب والرياضيات والفلك
+    والكيمياء والفلسفة والأدب. كما نشطت حركة الترجمة والتأليف،
+    وبرز علماء أسهموا في تطوير المعارف الإنسانية ونقلها إلى
+    الأجيال اللاحقة.
+  </div>
+
+  <div class="timeline">
+    <div class="time-card">
+      <strong>132هـ / 750م</strong>
+      <span>قيام الدولة العباسية</span>
+    </div>
+    <div class="time-card">
+      <strong>بغداد</strong>
+      <span>عاصمة العلم والمعرفة</span>
+    </div>
+    <div class="time-card">
+      <strong>بيت الحكمة</strong>
+      <span>مركز للترجمة والبحث العلمي</span>
+    </div>
+  </div>
+</section>
+
+<section id="scholars">
+  <div class="section-title">
+    <small>الفصل الثاني • عقول صنعت التاريخ</small>
+    <h2>علماء غيّروا العالم</h2>
+    <p>ثلاث محطات في رحلة المعرفة</p>
+  </div>
+
+  <div class="scholars">
+
+    <article class="scholar-card">
+      <div class="portrait">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al-Khwarizmi.jpg"
+             alt="رسم تخيلي للخوارزمي"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback">خ</div>
+      </div>
+      <h3>محمد بن موسى الخوارزمي</h3>
+      <p>عالم الرياضيات والفلك</p>
+      <button class="read-btn" onclick="showDetail('khwarizmi')">اكتشف العالم</button>
+    </article>
+
+    <article class="scholar-card">
+      <div class="portrait">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Al-Razi.jpg"
+             alt="رسم تاريخي للرازي"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback">ر</div>
+      </div>
+      <h3>أبو بكر الرازي</h3>
+      <p>عالم الطب والكيمياء</p>
+      <button class="read-btn" onclick="showDetail('razi')">اكتشف العالم</button>
+    </article>
+
+    <article class="scholar-card">
+      <div class="portrait">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Ibn_al-Haytham.jpg"
+             alt="رسم تاريخي لابن الهيثم"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="fallback">هـ</div>
+      </div>
+      <h3>الحسن بن الهيثم</h3>
+      <p>عالم البصريات والفيزياء</p>
+      <button class="read-btn" onclick="showDetail('haytham')">اكتشف العالم</button>
+    </article>
+
+  </div>
+
+  <div class="detail" id="khwarizmi">
+    <button class="close-btn" onclick="closeDetails()">إغلاق ✕</button>
+    <h2>محمد بن موسى الخوارزمي</h2>
+    <h3>رائد علم الجبر</h3>
+    <p>
+      وُلد الخوارزمي نحو سنة 780م، وعاش في العصر العباسي،
+      وعمل في بغداد وارتبط اسمه ببيت الحكمة. يُعد من أبرز
+      علماء الرياضيات في التاريخ.
+    </p>
+    <h3>أهم إنجازاته</h3>
+    <ul>
+      <li>أسهم في تأسيس علم الجبر من خلال كتابه «المختصر في حساب الجبر والمقابلة».</li>
+      <li>ساهم في نشر استعمال الأرقام الهندية والنظام العشري في الحساب.</li>
+      <li>أثرت أعماله في تطور الرياضيات في العالم الإسلامي وأوروبا.</li>
+      <li>ارتبطت كلمة «خوارزمية» في اللغات الأوروبية باسمه.</li>
+    </ul>
+    <h3>أثره في حياتنا</h3>
+    <p>
+      لا تزال أفكاره الرياضية أساساً مهماً في الرياضيات وعلوم
+      الحاسوب، وتُستخدم الخوارزميات في كثير من التقنيات الحديثة.
+    </p>
+  </div>
+
+  <div class="detail" id="razi">
+    <button class="close-btn" onclick="closeDetails()">إغلاق ✕</button>
+    <h2>أبو بكر محمد بن زكريا الرازي</h2>
+    <h3>طبيب الإنسانية</h3>
+    <p>
+      وُلد الرازي في مدينة الري نحو سنة 865م، واشتهر بعلمه
+      الواسع في الطب والكيمياء والفلسفة. عمل طبيباً وترك
+      مؤلفات طبية مهمة.
+    </p>
+    <h3>أهم إنجازاته</h3>
+    <ul>
+      <li>ألّف كتاب «الحاوي في الطب»، وهو من أشهر مؤلفاته الطبية.</li>
+      <li>كتب عن الأمراض وطرق تشخيصها وعلاجها.</li>
+      <li>اهتم بالملاحظة والتجربة في دراسة الطب.</li>
+      <li>ميّز في كتاباته بين مرض الجدري والحصبة ووصف أعراضهما.</li>
+    </ul>
+    <h3>أثره في حياتنا</h3>
+    <p>
+      ساهمت مؤلفاته في تطور المعرفة الطبية، واستفاد منها
+      الأطباء والباحثون في عصور لاحقة.
+    </p>
+  </div>
+
+  <div class="detail" id="haytham">
+    <button class="close-btn" onclick="closeDetails()">إغلاق ✕</button>
+    <h2>الحسن بن الهيثم</h2>
+    <h3>رائد علم البصريات</h3>
+    <p>
+      وُلد ابن الهيثم في البصرة سنة 965م، وعاش في مرحلة
+      متأخرة من العصر العباسي. عُرف باهتمامه بالفيزياء
+      والرياضيات والبصريات، واعتماده على التجربة والملاحظة.
+    </p>
+    <h3>أهم إنجازاته</h3>
+    <ul>
+      <li>ألّف كتاب «المناظر» الذي تناول فيه الضوء والرؤية.</li>
+      <li>شرح أن الرؤية تحدث عندما يدخل الضوء المنعكس من الأجسام إلى العين.</li>
+      <li>درس انعكاس الضوء وانكساره.</li>
+      <li>استخدم التجارب والملاحظة المنظمة لاختبار أفكاره.</li>
+    </ul>
+    <h3>أثره في حياتنا</h3>
+    <p>
+      أسهمت دراساته في تطور علم البصريات، وأثرت في تاريخ
+      الفيزياء والبحث العلمي.
+    </p>
+  </div>
+</section>
+
+<div class="quote">
+  «العلم نورٌ يهدي العقول، وأثرٌ يبقى بعد رحيل أصحابه»
+  <small>رحلة في ذاكرة الحضارة</small>
+</div>
+
+<!-- الفصل الثالث: الاختبار -->
+<section id="quiz">
+  <div class="section-title">
+    <small>الفصل الثالث • اختبر معرفتك</small>
+    <h2>رحلتك إلى المعرفة</h2>
+    <p>هل تتذكر ما اكتشفته خلال جولتك في المتحف؟</p>
+  </div>
+
+  <div class="quiz">
+    <form id="quizForm">
+
+      <div class="quiz-question">
+        <h3>1. متى بدأت الدولة العباسية؟</h3>
+        <label class="quiz-option">
+          <input type="radio" name="q1" value="0"> 100هـ
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q1" value="1"> 132هـ
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q1" value="2"> 200هـ
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <h3>2. ما عاصمة الدولة العباسية؟</h3>
+        <label class="quiz-option">
+          <input type="radio" name="q2" value="0"> دمشق
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q2" value="1"> بغداد
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q2" value="2"> القاهرة
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <h3>3. من العالم الذي اشتهر بعلم الجبر؟</h3>
+        <label class="quiz-option">
+          <input type="radio" name="q3" value="0"> أبو بكر الرازي
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q3" value="1"> ابن الهيثم
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q3" value="2"> الخوارزمي
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <h3>4. في أي مجال اشتهر أبو بكر الرازي؟</h3>
+        <label class="quiz-option">
+          <input type="radio" name="q4" value="0"> الطب
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q4" value="1"> الفلك
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q4" value="2"> الهندسة
+        </label>
+      </div>
+
+      <div class="quiz-question">
+        <h3>5. ما المجال الذي اشتهر به ابن الهيثم؟</h3>
+        <label class="quiz-option">
+          <input type="radio" name="q5" value="0"> الأدب
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q5" value="1"> البصريات
+        </label>
+        <label class="quiz-option">
+          <input type="radio" name="q5" value="2"> الشعر
+        </label>
+      </div>
+
+      <button type="submit" class="quiz-submit">
+        اكتشف نتيجتي
+      </button>
+
+    </form>
+
+    <div class="quiz-result" id="quizResult">
+      <h3 id="resultTitle"></h3>
+      <p id="resultText"></p>
+      <button type="button" class="quiz-submit" onclick="restartQuiz()">
+        أعد الاختبار
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <span>۞</span> متحف الحضارة العباسية <span>۞</span>
+  <br>
+  مشروع في اللغة العربية • رحلة في تاريخ العلم والعلماء
+  <br>
+  إعداد التلاميذ
+</footer>
+
+<script>
+function showDetail(id) {
+  document.querySelectorAll('.detail').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  const selected = document.getElementById(id);
+  selected.classList.add('active');
+
+  setTimeout(() => {
+    selected.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    });
+  }, 100);
+}
+
+function closeDetails() {
+  document.querySelectorAll('.detail').forEach(item => {
+    item.classList.remove('active');
+  });
+}
+
+/* تشغيل الاختبار */
+const quizForm = document.getElementById('quizForm');
+
+quizForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const answers = {
+    q1: "1",
+    q2: "1",
+    q3: "2",
+    q4: "0",
+    q5: "1"
+  };
+
+  let score = 0;
+
+  for (let question in answers) {
+    const selected = document.querySelector(
+      'input[name="' + question + '"]:checked'
+    );
+
+    if (!selected) {
+      alert('أجيبي عن جميع الأسئلة أولاً!');
+      return;
+    }
+
+    if (selected.value === answers[question]) {
+      score++;
+    }
+  }
+
+  const result = document.getElementById('quizResult');
+  const title = document.getElementById('resultTitle');
+  const text = document.getElementById('resultText');
+
+  result.style.display = 'block';
+
+  if (score === 5) {
+    title.textContent = 'ممتاز! ✨';
+    text.textContent = 'إجابة كاملة! حصلت على 5 من 5.';
+  } else if (score >= 3) {
+    title.textContent = 'أحسنت! ✧';
+    text.textContent = 'حصلت على ' + score + ' من 5. معرفتك جيدة!';
+  } else {
+    title.textContent = 'واصل الاكتشاف!';
+    text.textContent = 'حصلت على ' + score + ' من 5. أعد جولتك وتعلم المزيد.';
+  }
+
+  result.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+});
+
+function restartQuiz() {
+  quizForm.reset();
+  document.getElementById('quizResult').style.display = 'none';
+
+  document.getElementById('quiz').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+</script>
+
+</body>
+</html>
