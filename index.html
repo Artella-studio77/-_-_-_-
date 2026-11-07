@@ -470,10 +470,34 @@ footer span { color: #d2b47d; }
   .quote { padding: 55px 8%; }
   .quiz { padding: 20px; }
 }
+
+/* زر الموسيقى فقط */
+.music-button {
+  position: fixed;
+  bottom: 22px;
+  left: 22px;
+  z-index: 1000;
+  background: #243f59;
+  color: #e8d2a8;
+  border: 1px solid #b28a50;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-family: 'Cairo', sans-serif;
+  cursor: pointer;
+}
 </style>
 </head>
 
 <body>
+
+<!-- الموسيقى -->
+<audio id="museumMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" class="music-button">
+  ▶ تشغيل الموسيقى
+</button>
 
 <header>
   <div class="logo">۞ متحف الحضارة ۞</div>
@@ -849,6 +873,23 @@ function restartQuiz() {
     behavior: 'smooth'
   });
 }
+
+/* التحكم بالموسيقى فقط */
+const museumMusic = document.getElementById('museumMusic');
+const musicButton = document.getElementById('musicButton');
+
+musicButton.addEventListener('click', function() {
+  if (museumMusic.paused) {
+    museumMusic.play().then(() => {
+      musicButton.textContent = '❚❚ إيقاف الموسيقى';
+    }).catch(() => {
+      musicButton.textContent = '▶ تشغيل الموسيقى';
+    });
+  } else {
+    museumMusic.pause();
+    musicButton.textContent = '▶ تشغيل الموسيقى';
+  }
+});
 </script>
 
 </body>
